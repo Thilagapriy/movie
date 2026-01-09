@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Cinema</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="login-screen">
+        <div class="login-box">
+            <h3>Vaanga Collector Madam</h3>
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button onclick="checkLogin()">Enter</button>
+            <p id="error-msg" style="color:red; display:none;">Incorrect Login</p>
+        </div>
+    </div>
+
+    <div id="main-content" style="display:none;">
+        <div id="video-container" class="video-wrapper">
+            <video id="videoPlayer" playsinline preload="metadata">
+                <source src="https://dl.dropboxusercontent.com/scl/fi/zaycu26p3snmgmuf501qi/1000137930.mp4?rlkey=nhhpmtgd68x3i3e3yh6rn2dak&st=ntetjz4y" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <div class="video-overlay">
+                <div class="controls-center">
+                    <button class="icon-btn" onclick="changeTime(-10)">-10s</button>
+                    <button id="playPauseBtn" class="icon-btn play-main" onclick="togglePlay()">Play</button>
+                    <button class="icon-btn" onclick="changeTime(10)">+10s</button>
+                </div>
+                <button class="fs-btn" onclick="toggleFullScreen()">⛶ Full Screen</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
