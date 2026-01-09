@@ -41,10 +41,20 @@
             </video>
 
             <div id="controls-wrapper" class="video-overlay">
+                <div class="top-controls">
+                    <button class="zoom-btn" onclick="toggleZoom()">🔍 Zoom: Fit</button>
+                </div>
+
                 <div class="controls-center">
                     <button class="circle-btn" onclick="changeTime(-10)">-10s</button>
                     <button id="playPauseBtn" class="play-btn-main" onclick="togglePlay()">Play</button>
                     <button class="circle-btn" onclick="changeTime(10)">+10s</button>
+                </div>
+
+                <div class="seek-bar-container">
+                    <span id="current-time" class="time-label">00:00</span>
+                    <input type="range" id="seekBar" value="0" step="0.1" class="seek-bar">
+                    <span id="duration-time" class="time-label">00:00</span>
                 </div>
                 
                 <button class="fs-btn-red" onclick="toggleFullScreen()">⛶ Full Screen</button>
