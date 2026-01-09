@@ -41,3 +41,22 @@ function toggleFullScreen() {
         document.exitFullscreen();
     }
 }
+function startWatching() {
+    const picker = document.getElementById('moviePicker');
+    const playerArea = document.getElementById('player-area');
+    const menuArea = document.getElementById('menu-area');
+    const video = document.getElementById('videoPlayer');
+    const source = document.getElementById('videoSource');
+
+    // 1. Load selected link
+    source.src = picker.value;
+    video.load(); 
+    
+    // 2. UI Transitions
+    menuArea.style.display = 'none';
+    playerArea.style.display = 'block';
+    
+    // 3. Play
+    video.play();
+    showControls(); // Triggers the 3-second auto-hide timer
+}
