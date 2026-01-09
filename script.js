@@ -9,7 +9,7 @@ let hideTimer;
 function checkLogin() {
     const user = document.getElementById('username').value;
     const pass = document.getElementById('password').value;
-    if (user === "Dharani" && pass === "Duke005") {
+    if (user === "Dharani" && pass === "duke1234") {
         document.getElementById('login-screen').style.display = 'none';
         document.getElementById('video-container').style.display = 'flex';
     } else {
