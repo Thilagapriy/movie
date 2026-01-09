@@ -11,23 +11,28 @@
     <div id="login-screen">
         <div class="login-box">
             <h3>Vaanga Collector Madam</h3>
-            <input type="text" id="username" placeholder="Username">
-            <input type="password" id="password" placeholder="Password">
-            <button id="loginBtn" onclick="checkLogin()">Enter</button>
-            <p id="error-msg" style="color:red; display:none;">Incorrect Login</p>
+            <div class="input-group">
+                <label>username</label>
+                <input type="text" id="username">
+            </div>
+            <div class="input-group">
+                <label>password</label>
+                <input type="password" id="password">
+            </div>
+            <button class="login-btn" onclick="checkLogin()">Enter</button>
+            <p id="error-msg" style="color:#ff4d4d; display:none; font-size: 12px; margin-top: 10px;">Incorrect Login</p>
         </div>
     </div>
 
     <div id="video-container" class="container" style="display:none;">
         
         <div class="movie-selector" id="menu-area">
-            <label for="moviePicker" style="color:white; display:block; margin-bottom:10px;">Select Movie:</label>
-            <select id="moviePicker" style="padding:10px; border-radius:5px; margin-bottom:10px;">
+            <h2 style="color: white; margin-bottom: 20px;">Select Your Movie</h2>
+            <select id="moviePicker">
                 <option value="https://dl.dropboxusercontent.com/scl/fi/zaycu26p3snmgmuf501qi/1000137930.mp4?rlkey=nhhpmtgd68x3i3e3yh6rn2dak&st=ntetjz4y">Doremon Dinosaur</option>
                 <option value="https://dl.dropboxusercontent.com/scl/fi/mtptmu8kq8y39z0yfg83i/1000137971.mp4?rlkey=sd3wm3qhnbq7a4yvme35p4gl7&st=ftfldeva">Mask</option>
             </select>
-            <br>
-            <button id="startBtn" onclick="startWatching()" style="padding:10px 20px; background:#e50914; color:white; border:none; border-radius:5px; cursor:pointer;">Start Watching</button>
+            <button class="start-btn" onclick="startWatching()">Start Watching</button>
         </div>
 
         <div class="video-wrapper" id="player-area" style="display:none;">
@@ -37,11 +42,12 @@
 
             <div id="controls-wrapper" class="video-overlay">
                 <div class="controls-center">
-                    <button class="icon-btn" onclick="changeTime(-10)">-10s</button>
-                    <button id="playPauseBtn" class="icon-btn play-main" onclick="togglePlay()">Play</button>
-                    <button class="icon-btn" onclick="changeTime(10)">+10s</button>
+                    <button class="circle-btn" onclick="changeTime(-10)">-10s</button>
+                    <button id="playPauseBtn" class="play-btn-main" onclick="togglePlay()">Play</button>
+                    <button class="circle-btn" onclick="changeTime(10)">+10s</button>
                 </div>
-                <button class="fs-btn" onclick="toggleFullScreen()">⛶ Full Screen</button>
+                
+                <button class="fs-btn-red" onclick="toggleFullScreen()">⛶ Full Screen</button>
             </div>
         </div>
     </div>
