@@ -1,74 +1,122 @@
+/* General Setup */
 body {
-    background-color: #000;
+    background-color: #1a1a1a;
     margin: 0;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     overflow: hidden;
-    font-family: sans-serif;
 }
 
-/* Login Screen */
-#login-screen { color: white; text-align: center; }
-.login-box { background: #111; padding: 40px; border-radius: 15px; border: 1px solid #333; }
-input { display: block; margin: 10px auto; padding: 10px; border-radius: 5px; border: none; width: 200px; }
+/* Login Box (Matching your image) */
+.login-box {
+    background: #eeeeee;
+    padding: 30px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
 
-/* Video Wrapper - Fills Screen */
-.video-wrapper {
-    position: relative;
+.input-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.input-group label { font-size: 14px; color: #333; }
+
+.input-group input {
+    width: 150px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.login-btn {
+    background: #d32f2f;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    float: right;
+}
+
+/* Video Container & Fit to Screen Logic */
+.container {
     width: 100vw;
-    max-width: 1000px;
+    height: 100vh;
     background: #000;
 }
 
-video {
-    width: 100%;
-    display: block;
-}
-
-/* Internal Overlay Controls */
-.video-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
+.video-wrapper {
+    position: relative;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Maintain Aspect Ratio */
+video {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Correct Ratio Method */
+}
+
+/* Streaming Controls Overlay */
+.video-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    opacity: 0;
-    transition: opacity 0.3s;
+    transition: opacity 0.4s;
 }
 
-/* Show buttons when touching screen or hovering */
-.video-wrapper:hover .video-overlay,
-.video-wrapper:active .video-overlay {
-    opacity: 1;
-}
+.hidden { opacity: 0; pointer-events: none; }
 
-.controls-center { display: flex; gap: 15px; align-items: center; }
+.controls-center { display: flex; align-items: center; gap: 20px; }
 
-.icon-btn {
-    background: rgba(255,255,255,0.2);
-    border: 1px solid white;
+.circle-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #fff;
     color: white;
-    padding: 15px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     cursor: pointer;
 }
 
-.play-main { padding: 25px; font-weight: bold; font-size: 18px; }
+.play-btn-main {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid #fff;
+    color: white;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+}
 
-.fs-btn {
+.fs-btn-red {
     position: absolute;
-    bottom: 15px;
-    right: 15px;
-    background: #e50914;
+    bottom: 30px;
+    right: 30px;
+    background: #ff0000;
     color: white;
     border: none;
-    padding: 10px 15px;
+    padding: 10px 20px;
     border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
