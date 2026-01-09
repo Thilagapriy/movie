@@ -17,13 +17,25 @@
             <p id="error-msg" style="color:red; display:none;">Incorrect Login</p>
         </div>
     </div>
+<div id="login-screen">
+    </div>
 
-    <div id="main-content" style="display:none;">
-        <div id="video-container" class="video-wrapper">
-            <video id="videoPlayer" playsinline preload="metadata">
-                <source src="https://dl.dropboxusercontent.com/scl/fi/zaycu26p3snmgmuf501qi/1000137930.mp4?rlkey=nhhpmtgd68x3i3e3yh6rn2dak&st=ntetjz4y" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+<div id="video-container" class="container" style="display:none;">
+    <div class="movie-selector">
+        <label for="moviePicker">Select Movie:</label>
+        <select id="moviePicker" onchange="loadNewMovie()">
+            <option value="https://dl.dropboxusercontent.com/scl/fi/zaycu26p3snmgmuf501qi/1000137930.mp4?rlkey=nhhpmtgd68x3i3e3yh6rn2dak&st=ntetjz4y">Doremon dinosaur</option>
+            <option value="https://www.dropbox.com/scl/fi/mtptmu8kq8y39z0yfg83i/1000137971.mkv?rlkey=sd3wm3qhnbq7a4yvme35p4gl7&st=ftfldeva&dl=0">Mask</option>
+        </select>
+        <button id="startBtn" onclick="startWatching()">Start Watching</button>
+    </div>
+
+    <div class="video-wrapper" id="player-area" style="display:none;">
+        <video id="videoPlayer" playsinline preload="metadata">
+            <source id="videoSource" src="" type="video/mp4">
+        </video>
+        </div>
+</div>
 
             <div class="video-overlay">
                 <div class="controls-center">
