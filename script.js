@@ -1,44 +1,35 @@
-// Check Login Function
+const video = document.getElementById('videoPlayer');
+const controls = document.getElementById('controls-wrapper');
+let hideTimer;
+
+// Login Logic
 function checkLogin() {
     const user = document.getElementById('username').value;
     const pass = document.getElementById('password').value;
-    const loginScreen = document.getElementById('login-screen');
-    const videoContainer = document.getElementById('video-container');
-
-    console.log("Login button clicked!"); // This helps you test in the browser console
-
-    if (user === "Dharani" && pass === "dream is upsc") {
-        loginScreen.style.display = 'none';
-        videoContainer.style.display = 'flex'; // Shows the menu
+    if (user === "amma" && pass === "1234") {
+        document.getElementById('login-screen').style.display = 'none';
+        document.getElementById('video-container').style.display = 'flex';
     } else {
         document.getElementById('error-msg').style.display = 'block';
     }
 }
 
-// Global Variables
-const video = document.getElementById('videoPlayer');
-const playBtn = document.getElementById('playPauseBtn');
-const controls = document.getElementById('controls-wrapper');
-let hideTimer;
-
-// Start Watching Function
+// Start Streaming
 function startWatching() {
     const picker = document.getElementById('moviePicker');
-    const playerArea = document.getElementById('player-area');
-    const menuArea = document.getElementById('menu-area');
     const source = document.getElementById('videoSource');
-
-    source.src = picker.value;
-    video.load(); // Vital for scene skipping and changing files
     
-    menuArea.style.display = 'none';
-    playerArea.style.display = 'block';
+    source.src = picker.value;
+    video.load(); // Vital for direct streaming
+    
+    document.getElementById('menu-area').style.display = 'none';
+    document.getElementById('player-area').style.display = 'flex';
     
     video.play();
     showControls();
 }
 
-// Controls Logic
+// UI Interaction
 function showControls() {
     controls.classList.remove('hidden');
     clearTimeout(hideTimer);
@@ -50,19 +41,20 @@ function showControls() {
 }
 
 function togglePlay() {
+    const btn = document.getElementById('playPauseBtn');
     if (video.paused) {
         video.play();
-        playBtn.innerText = "Pause";
+        btn.innerText = "Pause";
         showControls();
     } else {
         video.pause();
-        playBtn.innerText = "Play";
+        btn.innerText = "Play";
         showControls();
     }
 }
 
-function changeTime(seconds) {
-    video.currentTime += seconds;
+function changeTime(secs) {
+    video.currentTime += secs;
     showControls();
 }
 
@@ -75,6 +67,6 @@ function toggleFullScreen() {
     }
 }
 
-// Interaction Listeners
+// Listeners
 video.addEventListener('mousemove', showControls);
 video.addEventListener('touchstart', showControls);
